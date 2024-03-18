@@ -18,9 +18,9 @@ async fn main() -> Result<(), reqwest::Error>{
     let from = std::env::args().nth(1).expect("one arg");
     let to = std::env::args().nth(2).expect("two arg");
     let amount = std::env::args().nth(3).expect("three arg");
-    println!("from: {from:?}, to: {to:?}, amount: {amount:?}");
+    println!("Conversion\n from: {from}\n to: {to}\n amount: {amount}");
 
-    let conversion_rate: Conversion = client.get("https://www.frankfurter.app/latest")
+    let conversion_rate_dto: Conversion = client.get("https://www.frankfurter.app/latest")
         .query(&[("from", from)])
         .query(&[("to", to.clone())])
         .send()
@@ -28,8 +28,10 @@ async fn main() -> Result<(), reqwest::Error>{
         .json()
         .await?;
 
+    let amount_p = amount.parse::<f32>().expect("Couldn't parse.");
+    let conversion_rate = conversion_rate_dto.rates.get(&to).expect("Couldn't get conversion rate from payload");
 
-    let converted = amount.parse::<f32>().expect("cant parse") * conversion_rate.rates.get(&to).expect("no rate");
+    let converted = amount_p * conversion_rate;
     println!("Converted: {converted}");
     Ok(())
 }
