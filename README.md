@@ -26,3 +26,22 @@ Listing all available currencies:
 
 ```shell
 cargo run --list
+```
+
+Fetching the current exchange rate from EUR to USD:
+
+```shell
+cargo run -- --from EUR --to USD
+```
+
+Calculating the amount of USD for 100 EUR:
+
+```shell
+cargo run -- --from EUR --to USD --amount 100
+```
+
+Displaying the exchange rate chart from EUR to USD over the past month:
+
+```shell
+cargo run -- --from EUR --to USD --chart
+```
