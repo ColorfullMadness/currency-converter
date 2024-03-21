@@ -1,7 +1,6 @@
 use std::collections::HashMap;
 use reqwest::{Client, Error};
 use serde::Deserialize;
-use std::hash::Hash;
 use std::io::stdout;
 use std::num::ParseFloatError;
 use std::ops::Index;
@@ -102,7 +101,7 @@ async fn main() -> Result<(), AppError> {
         .send()
         .await?;
 
-    let currencies: &HashMap<String, String> = response.json().await?;
+    let currencies: &HashMap<String, String> = &response.json().await?;
 
     if parsed.list {
         println!("Today's exchange rates for {}:", from.unwrap());
