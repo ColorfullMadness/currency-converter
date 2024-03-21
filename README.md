@@ -25,4 +25,4 @@ To use this application, you'll need Rust installed. Once you have Rust set up, 
 Listing all available currencies:
 
 ```shell
-cargo run -- --list
+cargo run --list
