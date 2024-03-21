@@ -1,4 +1,4 @@
-# Currency Exchange Rate Viewer
+# Currency Converter
 
 This project is a command-line application for fetching and displaying currency exchange rates. It uses the Frankfurter API to fetch current and historical exchange rates for a wide range of currencies. The application is built with Rust and features a text-based UI for displaying charts of exchange rates over time.
 
