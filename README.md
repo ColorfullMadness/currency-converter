@@ -11,7 +11,7 @@ This project is a command-line application for fetching and displaying currency 
 
 ## Usage
 
-To use this application, you'll need Rust installed. Once you have Rust set up, you can run the application with `cargo run`. The application supports the following flags:
+To use this application, you'll need Rust installed. Once you have Rust set up, you can build the application with `cargo run`. The application supports the following flags:
 
 - `--list`: Lists all available currencies.
 - `--from <CURRENCY_CODE>`: Specifies the source currency code.
@@ -25,23 +25,23 @@ To use this application, you'll need Rust installed. Once you have Rust set up, 
 Listing all available currencies:
 
 ```shell
-cargo run --list
+cargo run -- --list
 ```
 
 Fetching the current exchange rate from EUR to USD:
 
 ```shell
-cargo run -- --from EUR --to USD
+cargo run -- EUR USD
 ```
 
 Calculating the amount of USD for 100 EUR:
 
 ```shell
-cargo run -- --from EUR --to USD --amount 100
+cargo run -- EUR USD 100
 ```
 
 Displaying the exchange rate chart from EUR to USD over the past month:
 
 ```shell
-cargo run -- --from EUR --to USD --chart
+cargo run -- EUR USD -c
 ```
