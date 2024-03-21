@@ -12,6 +12,7 @@ use ratatui::prelude::{Rect, Style, Stylize};
 use ratatui::{symbols, Terminal};
 use ratatui::widgets::{Axis, Block, Borders, Chart, Dataset, GraphType};
 use chrono::prelude::*;
+
 use ordered_float::OrderedFloat;
 
 #[derive(Debug, Deserialize)]
@@ -71,7 +72,7 @@ struct Cli {
     #[arg(help = "Code of target currency.")]
     to_currency_code: Option<String>,
 
-    #[arg(short = 'a', help = "Amount of base currency to be exchanged.", requires = "from_currency_code", requires="to_currency_code")]
+    #[arg(help = "Amount of base currency to be exchanged.", requires = "from_currency_code", requires="to_currency_code")]
     amount: Option<f32>,
 
     #[arg(short = 'l', long = "list", exclusive = true, default_missing_value = "true", default_value = "false", require_equals = true, num_args = 0..=1, action = ArgAction::Set)]
